@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Inter Font - Local Files */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('public/fonts/Inter-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('public/fonts/Inter-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('public/fonts/Inter-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('public/fonts/Inter-Bold.otf') format('opentype');
+}
+
+/* Apply Inter font globally */
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@theme {
+  --color-dark-primary: #0E101B;
+  --color-text-primary: #EFF1F5;
+  --color-text-secondary: #B9CBD4;
+  --color-bg-active: #30374F;
+  --color-text-secondary-hover: #ECECED;
+  --color-utility-gray: #404968;
+  --color-text-placeholder: #858B8E;
+  --color-bg-primary-alt: #111322;
+  --color-text-tertiary: #7D89B0;
+  --color-utility-orange: #F7B27A;
+  --color-bg-red: #E04F16;
+  --color-border-primary: #373E41;
+  --color-light-yellow: #F9DBAF;
+  --font-family-sans: Inter, system-ui, sans-serif;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(255, 107, 0, 0.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes popup-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%) scale(1);
+  }
+}
+
+.animate-popup {
+  animation: popup-appear 0.3s ease-in-out forwards;
+}
