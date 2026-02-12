@@ -8,6 +8,7 @@ import PMICard from './components/PMICard';
 import RegionTabs from './components/RegionTabs';
 import WorldContent from './components/regions/WorldContent';
 import AsiaContent from './components/regions/AsiaContent';
+import Footer from './components/regions/Footer';
 
 const REGIONS = [
     'World',
@@ -90,6 +91,7 @@ function Home() {
                 <PMICard pmiScore={73} title="Russia-NATO Escalation Index" tags={['Russia', 'NATO', 'Europe', 'Escalation']} contractCount={38} scoreBgColor="#F9DBAF" onBookmark={() => console.log('Bookmarked')} />
             </div>
         </div>
+        <Footer />
     </div>
     )
 }
