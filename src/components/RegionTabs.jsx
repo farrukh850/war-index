@@ -25,10 +25,10 @@ const RegionTabs = ({ regions, activeRegion, onRegionChange }) => {
                         aria-label="Region"
                         key={region}
                         onClick={() => onRegionChange(region)}
-                        className={`py-2 px-2 xl:px-3.5 text-base text-text-secondary font-semibold rounded-md cursor-pointer transition duration-300 ${
+                        className={`py-2 px-2 xl:px-3.5 text-base font-semibold rounded-md cursor-pointer transition duration-300 ${
                             activeRegion === region
-                                ? 'bg-bg-primary-alt'
-                                : 'bg-transparent hover:bg-bg-primary-alt'
+                                ? 'bg-bg-primary-alt text-text-secondary'
+                                : 'bg-transparent hover:bg-bg-primary-alt text-text-tertiary'
                         }`}
                     >
                         {region}

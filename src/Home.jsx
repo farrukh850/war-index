@@ -80,7 +80,7 @@ function Home() {
             {renderContent()}
             <PMIScoreChart />
             <div className="flex flex-col gap-6 pb-16">
-                <div className="flex flex-col gap-0.5 mb-0 lg:mb-11">
+                <div className="flex flex-col gap-0.5 mb-0 lg:mb-6">
                     <h3 className="text-2xl text-text-primary font-semibold">Prediction Market Indexes</h3>
                     <p className="text-base text-text-tertiary">A summary or description can go here</p>
                 </div>
