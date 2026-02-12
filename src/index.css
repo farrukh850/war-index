@@ -6,7 +6,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('public/fonts/Inter-Regular.otf') format('opentype');
+  src: url('assets/fonts/Inter-Regular.otf') format('opentype');
 }
 
 @font-face {
@@ -14,7 +14,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('public/fonts/Inter-Medium.otf') format('opentype');
+  src: url('assets/fonts/Inter-Medium.otf') format('opentype');
 }
 
 @font-face {
@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('public/fonts/Inter-SemiBold.otf') format('opentype');
+  src: url('assets/fonts/Inter-SemiBold.otf') format('opentype');
 }
 
 @font-face {
@@ -30,7 +30,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('public/fonts/Inter-Bold.otf') format('opentype');
+  src: url('assets/fonts/Inter-Bold.otf') format('opentype');
 }
 
 /* Apply Inter font globally */
