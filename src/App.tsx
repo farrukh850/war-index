@@ -8,7 +8,7 @@ function App(): React.ReactElement {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/region/:regionId" element={<RegionPage />} />
+                <Route path="/region/:regionSlug" element={<RegionPage />} />
             </Routes>
         </BrowserRouter>
     );

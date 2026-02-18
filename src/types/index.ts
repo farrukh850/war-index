@@ -1,5 +1,6 @@
 export interface WorldMarker {
     id: number;
+    slug: string;
     top: string;
     left: string;
     mobileTop: string;

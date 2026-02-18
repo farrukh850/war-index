@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PMICardChart from "./PMI-score-chart.tsx";
+import { getRegionChartData } from '../data/regionChartDataMap';
 import type { WorldMarker } from '../types';
 
 const hexToRgba = (hex: string, alpha: number): string => {
@@ -19,6 +20,7 @@ interface WorldConflictIndexProps {
 
 export default function WorldConflictIndex({ markers, activeMarker, setActiveMarker, popupRef, onMarkerClick }: WorldConflictIndexProps): React.ReactElement {
     const [activeView, setActiveView] = useState<'map' | 'graph'>('map');
+    const chartData = getRegionChartData('world');
 
     return (
         <div className="py-16 px-12 border-dashed-spaced relative">
@@ -112,7 +114,7 @@ export default function WorldConflictIndex({ markers, activeMarker, setActiveMar
                     )}
                     {activeView === 'graph' && (
                         <div className="w-full animate-fadeIn">
-                            <PMICardChart/>
+                            <PMICardChart data={chartData}/>
                         </div>
                     )}
                 </div>

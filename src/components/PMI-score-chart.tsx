@@ -14,56 +14,27 @@ interface DataPoint {
     value: number;
 }
 
-const data: DataPoint[] = [
-    { month: "March 01, 2026", value: 40 },
-    { month: "March 02, 2026", value: 42 },
-    { month: "March 03, 2026", value: 38 },
-    { month: "March 04, 2026", value: 43 },
-    { month: "March 05, 2026", value: 45 },
-    { month: "March 06, 2026", value: 44 },
-    { month: "March 07, 2026", value: 47 },
-    { month: "March 08, 2026", value: 49 },
-    { month: "March 09, 2026", value: 48 },
-    { month: "March 10, 2026", value: 52 },
-    { month: "March 11, 2026", value: 54 },
-    { month: "March 12, 2026", value: 56 },
-    { month: "March 13, 2026", value: 58 },
-    { month: "March 14, 2026", value: 60 },
-    { month: "March 15, 2026", value: 62 },
-    { month: "March 16, 2026", value: 61 },
-    { month: "March 17, 2026", value: 64 },
-    { month: "March 18, 2026", value: 66 },
-    { month: "March 19, 2026", value: 68 },
-    { month: "March 20, 2026", value: 70 },
-    { month: "March 21, 2026", value: 72 },
-    { month: "March 22, 2026", value: 71 },
-    { month: "March 23, 2026", value: 74 },
-    { month: "March 24, 2026", value: 76 },
-    { month: "March 25, 2026", value: 78 },
-    { month: "March 26, 2026", value: 80 },
-    { month: "March 27, 2026", value: 82 },
-    { month: "March 28, 2026", value: 84 },
-    { month: "March 29, 2026", value: 95 },
-    { month: "March 30, 2026", value: 100 },
-];
-
-interface CustomDotProps {
-    cx?: number;
-    cy?: number;
-    index?: number;
+interface IndexGraphProps {
+    data?: DataPoint[];
 }
 
-const CustomDot = (props: CustomDotProps): React.ReactElement | null => {
-    const { cx, cy, index } = props;
-
-    // Only highlight last point
-    if (index === data.length - 1) {
-        return <circle cx={cx} cy={cy} r={6} fill="#F7B27A" />;
+export default function IndexGraph({ data = [] }: IndexGraphProps): React.ReactElement {
+    interface CustomDotProps {
+        cx?: number;
+        cy?: number;
+        index?: number;
     }
 
-    return null;
-};
-export default function IndexGraph(): React.ReactElement {
+    const CustomDot = (props: CustomDotProps): React.ReactElement | null => {
+        const { cx, cy, index } = props;
+
+        // Only highlight last point
+        if (index === data.length - 1) {
+            return <circle cx={cx} cy={cy} r={6} fill="#F7B27A" />;
+        }
+
+        return null;
+    };
     return (
         <div
             style={{
@@ -82,7 +53,6 @@ export default function IndexGraph(): React.ReactElement {
                         dataKey="month"
                         stroke="#30374F"
                         tick={{ fill: "#30374F" }}
-                        ticks={["March 01, 2026", "March 07, 2026", "March 14, 2026"]}
                         label={{
                             value: "Month",
                             position: "insideBottom",

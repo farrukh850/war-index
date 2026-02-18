@@ -1,19 +1,18 @@
 import React from 'react';
-import {worldMarkers} from "../data/worldMarkers.js";
 import type { WorldMarker } from '../types';
+import { Link } from "react-router-dom";
+interface PMICardProps {
+    markers: WorldMarker[];
+}
 
-function PMICard(): React.ReactElement {
+function PMICard({ markers }: PMICardProps): React.ReactElement {
     return (
         <div className="grid grid-cols-12 gap-6">
-            {worldMarkers.map((marker: WorldMarker) => (
-                <div
+            {markers.map((marker: WorldMarker) => (
+                <Link
                     key={marker.id}
-                    className="col-span-12 grid grid-cols-12 rounded-md bg-bg-dark-primary border border-border-tertiary transition-all duration-300 hover:bg-none"
-                    style={{
-                        '--hover-gradient': 'linear-gradient(180deg, #F2F7F9 0%, #DEE9EF 100%)'
-                    } as React.CSSProperties}
-                    onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => e.currentTarget.style.background = 'linear-gradient(180deg, #F2F7F9 0%, #97B9C9 100%)'}
-                    onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => e.currentTarget.style.background = ''}
+                    to={`/region/${marker.slug}`}
+                    className="col-span-12 grid grid-cols-12 rounded-md bg-bg-dark-primary border border-border-tertiary transition-all duration-300 hover:bg-gradient-to-b hover:from-[#F2F7F9] hover:to-[#97B9C9]"
                 >
                     {marker.mapImage && (
                         <div className="col-span-3">
@@ -60,7 +59,7 @@ function PMICard(): React.ReactElement {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     );

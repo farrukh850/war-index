@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import PMICardChart from "./PMI-score-chart.tsx";
+import { getRegionChartData } from '../data/regionChartDataMap';
 import type { WorldMarker } from '../types';
 
 const hexToRgba = (hex: string, alpha: number): string => {
@@ -21,6 +22,7 @@ interface RegionViewProps {
 
 export default function RegionView({ markers, activeMarker, setActiveMarker, popupRef, selectedRegion, onBack }: RegionViewProps): React.ReactElement {
     const [activeView, setActiveView] = useState<'map' | 'graph'>('map');
+    const chartData = getRegionChartData(selectedRegion.id);
 
     return (
         <div className="py-16 px-12 border-dashed-spaced relative">
@@ -28,7 +30,7 @@ export default function RegionView({ markers, activeMarker, setActiveMarker, pop
             <div className="flex items-center gap-2 mb-11">
                 <Link to="/" className="text-sm text-utility-gray font-semibold">World</Link>
                 <img src="/images/angle-right.svg" alt="Anglr Right"/>
-                <span className="text-sm text-text-primary font-semibold">{selectedRegion.title.split(' ')[0]}</span>
+                <span className="text-sm text-text-primary font-semibold">{selectedRegion.title}</span>
             </div>
 
             <h1 className="text-text-primary font-semibold text-3xl mb-3">{selectedRegion.title}</h1>
@@ -36,7 +38,7 @@ export default function RegionView({ markers, activeMarker, setActiveMarker, pop
             <div className="grid grid-cols-12 gap-5 lg:gap-11 justify-between items-start mt-11">
                 <div className="col-span-12 lg:col-span-3">
                     <div className="grid grid-cols-12 gap-4 mt-5 lg:mt-0 w-full lg:max-w-[367px]">
-                        <div className="col-span-12 lg:col-span-12 flex flex-col text-center py-8 px-6 rounded-2xl bg-utility-orange items-start justify-center">
+                        <div className="col-span-12 lg:col-span-12 flex flex-col text-center py-8 px-6 rounded-2xl bg-light-yellow items-start justify-center">
                             <h4 className="text-3xl font-bold text-dark-primary">{selectedRegion.number}</h4>
                             <div className="flex items-center gap-1">
                                 <p className="text-base text-dark-primary font-medium">PMI Score</p>
@@ -82,7 +84,9 @@ export default function RegionView({ markers, activeMarker, setActiveMarker, pop
                     </div>
                     {activeView === 'map' && (
                         <div className="relative animate-fadeIn">
-                            <img src={selectedRegion.mapImage} alt={selectedRegion.title} className="w-full"/>
+                            <div className="w-full h-100">
+                                <img src={selectedRegion.mapImage} alt={selectedRegion.title} className="w-full h-full object-contain"/>
+                            </div>
                             {markers.map((marker: WorldMarker) => (
                                 <button
                                     key={marker.id}
@@ -120,7 +124,7 @@ export default function RegionView({ markers, activeMarker, setActiveMarker, pop
                     )}
                     {activeView === 'graph' && (
                         <div className="w-full animate-fadeIn">
-                            <PMICardChart/>
+                            <PMICardChart data={chartData}/>
                         </div>
                     )}
                 </div>
