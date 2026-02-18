@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface Question {
   id: number;
@@ -47,8 +47,7 @@ const IndexQuestions = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-8">
-
+    <div className="p-12 border-dashed-spaced relative">
       <div className="space-y-2">
         {questions.map((question) => (
           <div
@@ -107,6 +106,8 @@ const IndexQuestions = () => {
           </div>
         ))}
       </div>
+        <img src="/images/border-plus.svg" alt="Border Plus" className="absolute -left-[7px] -bottom-2 z-10"/>
+        <img src="/images/border-plus.svg" alt="Border Plus" className="absolute -right-[7px] -bottom-2 z-10"/>
     </div>
   );
 };
